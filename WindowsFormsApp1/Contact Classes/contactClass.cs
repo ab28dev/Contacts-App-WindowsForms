@@ -143,7 +143,7 @@ namespace WindowsFormsApp1.Contact_Classes
         {
             //create a default return value and set it to false
             bool isSuccess = false;
-            //create sql connection
+            //create sql connection 
             SqlConnection conn = new SqlConnection(myconnstrng);
             try
             {

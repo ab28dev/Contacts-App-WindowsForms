@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -100,7 +102,7 @@ namespace WindowsFormsApp1
             c.gender = SGender.Text;
             //Update data in database 
             bool success = c.Update(c);
-            if(success = true)
+            if(success == true)
             {
                 // Updated successfully
                 MessageBox.Show("Contact has been updated successfully.");
@@ -155,6 +157,19 @@ namespace WindowsFormsApp1
                 // failed to deleted
                 MessageBox.Show("Can not delete. try again");
             }
+        }
+
+        static string myconnstr = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
+        private void ISearch_TextChanged(object sender, EventArgs e)
+        {
+            // get the value from text box search
+            string keyword = ISearch.Text;
+
+            SqlConnection conn = new SqlConnection();
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM TBL_Contact WHERE FirstName LIKE '%" + keyword + "%' OR LastName LIKE '%" + keyword + "%' OR Address LIKE '%" + keyword + "%'", conn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dgvContactList.DataSource = dt;
         }
     }
 }

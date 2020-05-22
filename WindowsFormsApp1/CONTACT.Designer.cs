@@ -51,6 +51,7 @@
             this.btnUpdate_onclk = new System.Windows.Forms.Button();
             this.btnClear_onclk = new System.Windows.Forms.Button();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.SuspendLayout();
@@ -233,6 +234,7 @@
             this.ISearch.Name = "ISearch";
             this.ISearch.Size = new System.Drawing.Size(179, 31);
             this.ISearch.TabIndex = 2;
+            this.ISearch.TextChanged += new System.EventHandler(this.ISearch_TextChanged);
             // 
             // Exit
             // 
@@ -306,11 +308,19 @@
             this.hScrollBar1.Size = new System.Drawing.Size(989, 17);
             this.hScrollBar1.TabIndex = 9;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(764, 32);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
             // CONTACT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 606);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.btnClear_onclk);
             this.Controls.Add(this.btnUpdate_onclk);
@@ -368,6 +378,7 @@
         private System.Windows.Forms.Button btnUpdate_onclk;
         private System.Windows.Forms.Button btnClear_onclk;
         private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
